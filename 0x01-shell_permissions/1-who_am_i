@@ -1,6 +1,2 @@
 #!/bin/bash
-<<<<<<< HEAD
 whoami
-=======
-id
->>>>>>> refs/remotes/origin/master
