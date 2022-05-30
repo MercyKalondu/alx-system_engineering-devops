@@ -1,4 +1,4 @@
-first line
-second line
-third line
-fourth line
+#!bin/bash
+echo "second line"
+echo "third line"
+echo "fourth line"
