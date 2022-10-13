@@ -2,7 +2,6 @@
 #Creating a script that uses nested if statements
 
 file="school"
-
 if [ -e $file ]
 then
     echo "$file file exists"
