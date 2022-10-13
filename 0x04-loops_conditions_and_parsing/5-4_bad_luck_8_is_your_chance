@@ -2,7 +2,6 @@
 #Creating a script that uses if, else if and else statements
 
 x=1
-
 while [ $x -le 10 ]
 do
 	if [ $x -eq 4 ]
