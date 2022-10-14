@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #Script that displays the content of the file /etc/passwd
-
 while IFS= read -r line
 do
     username=$(echo "$line" | cut -f 1 -d ':')
