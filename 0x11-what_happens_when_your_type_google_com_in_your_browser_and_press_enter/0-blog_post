@@ -1,0 +1,33 @@
+t happens when you type google.com in your browser and press Enter:
+
+
+
+When you type www.google.com in your browser, the keyboard signals the operating system and it responds to it. By typing www.google.com in the browser, the browser application handles it. The browser is a medium that allows you to make a request and let a server serve you.
+
+
+
+Inorder for the browser to know which server to send the request to first it needs to find its address, so it queries the DNS (Domain Name System) to resolve the domain name (google.com) into an IP address.
+
+
+
+Once the DNS has provided your browser with the IP address, your browser will establish a connection to google server using the Transmission Control Protocol (TCP). TCP/IP, ensures that the connection between your machine and the server is secure and reliable.
+
+
+
+A web server uses a firewall to protect the system against breaches and attacks. Before your request can reach the server it passes through any firewall in place to protect the network from breaches and attacks.
+
+
+
+Since you are generating a web page, your browser generates HTTP (Hyper Text Transfer Protocol) which is part of the application layer. HTTPS uses the TCP for connection between the machine and server. For security purposes it uses Secure Socket Layer (SSL) which encrypts all the data passed between the browser and web server making all communication private.
+
+
+
+Before your request reaches the server, it first passes through the load balancer which directs it to the right server. It makes sure that no server is overloaded and provides high availabity by ensuring all request are served. If a server goes down it starts redirecting the request to different servers that are online.
+
+
+
+It is then passed to the web server. A web server is a machine that stores a website's component files and delivers them to you. A webserver known as HTTP server controls how users access the hosted files. It processes and answers incoming requests. When you type your request, it checks whether the requested URL matches any existing file and if found sends the file's content back to the browser or sends a "404 Not Found' error.
+
+
+
+In some cases, the web server may need to interact with an application server to fulfil your request. The application server runs the backend processes and logic required to generate the content for the web page. The application server may also need to retrieve data from a database inorder to fulfil request.
