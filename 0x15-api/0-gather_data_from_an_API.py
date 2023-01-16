@@ -3,6 +3,7 @@
 import requests
 import sys
 
+
 if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
 
@@ -18,7 +19,6 @@ if __name__ == "__main__":
     for task in tasks:
         if task.get('completed') is True:
             l_task.append(task)
-
 
     print("({}/{}):".format(len(l_task), len(tasks)))
     for task in l_task:
