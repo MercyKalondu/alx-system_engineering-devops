@@ -1,25 +1,36 @@
 #!/usr/bin/python3
-""" Script that uses JSONPlaceholder API to get information about employee """
-import requests
-import sys
+"""Returns information about an employee's TODO list progress"""
+
+from requests import get
+from sys import argv
 
 
-if __name__ == "__main__":
-    url = 'https://jsonplaceholder.typicode.com/'
+def todo(emp_id):
+    """Send request for employee's to do list to API"""
+    total = 0
+    completed = 0
+    url_user = 'https://jsonplaceholder.typicode.com/users/'
+    url_todo = 'https://jsonplaceholder.typicode.com/todos/'
 
-    user = '{}users/{}'.format(url, sys.argv[1])
-    res = requests.get(user)
-    json_o = res.json()
-    print("Employee {} is done with tasks".format(json_o.get('name')), end="")
+    # check if user exists
+    #step1: send get request to retrieve information using user Id passed as arg
+    user = get(url_user + emp_id).json().get('name')
 
-    todos = '{}todos?userId={}'.format(url, sys.argv[1])
-    res = requests.get(todos)
-    tasks = res.json()
-    l_task = []
-    for task in tasks:
-        if task.get('completed') is True:
-            l_task.append(task)
+    if user:
+        params = {'userId': emp_id}
+        # checks on the total available tasks
+        tasks = get(url_todo, params=params).json()
+        if tasks:
+            total = len(tasks)
+            #  get number of completed tasks
+            params.update({'completed': 'true'})
+            completed = len(get(url_todo, params=params).json())
 
-    print("({}/{}):".format(len(l_task), len(tasks)))
-    for task in l_task:
-        print("\t {}".format(task.get("title")))
+        print("Employee {} is done with tasks({}/{}):".format(user, completed, total))
+        for task in tasks:
+            if task.get('completed') is True:
+                print("\t {}".format(task.get('title')))
+
+if __name__ == '__main__':
+    if len(argv) > 1:
+        todo(argv[1])
